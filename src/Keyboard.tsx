@@ -1,5 +1,11 @@
 import styles from "./Keyboard.module.css";
 
+interface KEYBOARD_PROPS {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+}
+
 const KEYS = [
   "a",
   "b",
@@ -29,7 +35,7 @@ const KEYS = [
   "z",
 ];
 
-export function Keyboard() {
+export function Keyboard({ activeLetters, inactiveLetters, addGuessedLetter }) {
   return (
     <div
       style={{
