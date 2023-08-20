@@ -4,10 +4,12 @@ import { HangmanWord } from "./HangmanWord";
 import { Keyboard } from "./Keyboard";
 import words from "./wordList.json";
 
+function getWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
 function App() {
-  const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)];
-  });
+  const [wordToGuess, setWordToGuess] = useState(getWord);
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
@@ -51,6 +53,24 @@ function App() {
 
     return () => document.removeEventListener("keypress", handler);
   }, [guessedLetters, addGuessedLetter]);
+
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      const key = event.key;
+
+      if (key !== " ") {
+        return;
+      }
+
+      event.preventDefault();
+      setGuessedLetters([]);
+      setWordToGuess(getWord());
+    };
+
+    document.addEventListener("keypress", handler);
+
+    return () => document.removeEventListener("keypress", handler);
+  }, []);
 
   return (
     <>
