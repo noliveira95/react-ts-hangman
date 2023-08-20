@@ -8,18 +8,20 @@
     text-transform: uppercase;
     padding: .5rem;
     cursor: pointer;
+    color: black;
 }
 
-.btn:active {
+.btn.active {
     background-color: hsl(200, 100%, 50%);
     color: white;
 }
 
-.btn:disabled {
+.btn.inactive {
     opacity: 0.3;
 }
 
-.btn:hover:not(:disabled, :active), .btn:focus:not(:disabled, :active) {
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
     background-color: hsl(200, 100%, 75%);
 }
 
