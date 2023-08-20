@@ -76,6 +76,7 @@ function App() {
         </div>
         <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
         <HangmanWord
+          reveal={isLoser || isWinner}
           guessedLetters={guessedLetters}
           wordToGuess={wordToGuess}
         />
