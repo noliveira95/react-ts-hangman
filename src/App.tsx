@@ -91,8 +91,8 @@ function App() {
           }}
         >
           {!isLoser && !isWinner && "React Hangman"}
-          {isLoser && "You lose! Refresh to try again."}
-          {isWinner && "You win! Refresh to start a new game."}
+          {isLoser && "You lose! Press space try again."}
+          {isWinner && "You win! Press space to play again."}
         </div>
         <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
         <HangmanWord
